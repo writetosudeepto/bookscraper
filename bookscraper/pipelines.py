@@ -30,7 +30,6 @@ class BookscraperPipeline:
         # Availability --> extract number of books in stock
         availability_string = adapter.get('availability')
         split_string_array = availability_string.split('(')
-        print("********", split_string_array, "********")
         if len(split_string_array) < 2:
             adapter['availability'] = 0
         else:

@@ -50,7 +50,9 @@ class BookspiderSpider(scrapy.Spider):
         book_item['stars'] = book.css("p.star-rating").attrib['class']
         book_item['category'] = response.xpath(
             "//ul[@class='breadcrumb']/li[3]/a/text()").get()
-        book_item['product_description'] = book.xpath(
+        # book_item['product_description'] = book.xpath(
+        #     "//div[@id='product_description']/following-sibling::p/text()").get()
+        book_item['description'] = response.xpath(
             "//div[@id='product_description']/following-sibling::p/text()").get()
         book_item['price'] = book.css('p.price_color ::text').get()
 
